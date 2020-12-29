@@ -1,0 +1,2 @@
+class Deliverly < ApplicationRecord
+end
