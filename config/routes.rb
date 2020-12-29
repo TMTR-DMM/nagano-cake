@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
-  get 'deliveries/index'
-  get 'deliveries/edit'
-  get 'orders/new'
-  get 'orders/check'
-  get 'orders/thank'
-  get 'orders/index'
-  get 'orders/show'
-  get 'items/index'
-  get 'items/show'
-  get 'deliverlies/index'
-  get 'deliverlies/edit'
-  get 'cart_items/index'
-  get 'customers/show'
-  get 'customers/exit_check'
-  get 'homes/top'
-  get 'homes/about'
-  devise_for :customers
+root 'homes#top'
+get 'home/about' => 'homes#about' 
+devise_for :customers
+resource :customers, only: [:show, :edit, :update]
+get 'customers/exit_check' => 'customers#exit_check'
+patch 'customers' => 'customers#exit'
+resources :cart_items, only: [:index, :create, :update, :destroy]
+delete 'cart_items' => 'cart_items#all_destroy'
+resources :deliverlies, only: [:index, :create, :destroy, :edit, :update]
+resources :items, only: [:index, :show]
+resources :orders, only: [:new, :create, :index, :show]
+get 'orders/check' => 'orders#check'
+get 'orders/thank' => 'orders#thank'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
