@@ -1,2 +1,7 @@
-<h1>Deliveries#edit</h1>
-<p>Find me in app/views/deliveries/edit.html.erb</p>
+<%= form_with model: @delivery, local: true, |f| do %>
+  <%= f.label :postcode, '郵便番号（ハイフンなし）' %><br>
+  <%= f.text_field :postcode %><br>
+  <%= f.text_field :adress %><br>
+  <%= f.text_field :name %>
+  <%= f.submit '新規登録', deliveries_path %>
+<% end %>
