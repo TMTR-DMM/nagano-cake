@@ -7,4 +7,9 @@ class Customer < ApplicationRecord
   has_many :deliveries, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  
+  # ログインする時に退会済み(is_deleted==true)のユーザーを弾くためのメソッド
+  def active_for_authentication?
+    super && (self.is_deleted === false)
+  end
 end
