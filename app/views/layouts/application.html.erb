@@ -10,6 +10,44 @@
   </head>
 
   <body>
+      <nav class="navbar navbar-expand navbar-dark bg-transparent p-5 border-bottom">
+        <div class="container">
+          <p>LOGO</p>
+        <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "マイページ", customers_path(current_customer), class: "btn btn-outline-secondary" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary ml-5" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary ml-5" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_customer_session_path, class: "btn btn-outline-secondary ml-5", method: :delete %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "About", homes_about_path, class: "btn btn-outline-secondary" %>
+          </li>
+           <li class="nav-item">
+            <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary ml-5" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary ml-5" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary ml-5" %>
+          </li>
+        <% end %>
+        </ul>
+        </div><!--container-->
+      </nav>
+    </div><!--container-fluid-->
     <%= yield %>
+    
+  <footer class="navbar navbar-expand navbar-dark bg-transparent p-5 fixed-bottom border-top">
+  </footer>
   </body>
 </html>

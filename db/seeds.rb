@@ -45,3 +45,4 @@ Customer.create!(
   postcode: "126457",
   address: "東京都杉並区",
   )
+

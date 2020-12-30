@@ -1,0 +1,23 @@
+<div calss="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-auto">
+      <div class="card">
+        <%= image_tag 'ケーキ屋.jpg', :size =>'700x350' %>
+        <div class="card-img-overlay"><!--CSSで画像の上の文字を中央揃えにしたい（.card-img-overlay）-->
+          <p class="text-black">
+            ようこそ、ながのCAKEへ!<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </p>
+          </div>
+        </div>
+
+        <h2>新着商品</h2>
+        <%= link_to "全ての商品を見る＞", items_path, class: "float-right" %>
+      </div>
+       <div class="col"></div>
+    </div>
+  </div> 
+</div><!--container-->

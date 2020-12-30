@@ -1,19 +1,17 @@
 <h1>マイページ</h1>
 <span>
   <strong>登録情報</strong>
-  <!-- edit_customers_path(current.user.id)にしたい。 -->
-  <!-- 会員がおらず、contorollerが設定できない -->
-  <%= link_to "編集する", edit_customers_path, class: "btn btn-success" %>
+  <%= link_to "編集する", edit_customer_customers_path %>
 </span>
 
 <table border="1" style="border-collapse: collapse">
   <tr>
     <td>氏名</td>
-    <td>試しに文字入れてます</td>
+    <td><%= @customer.last_name %><span>&emsp;</span><%= @customer.first_name %></td>
   </tr>
   <tr>
     <td>カナ</td>
-    <td></td>
+    <td><%= @customer.kana_last_name %><span>&emsp;</span><%= @customer.kana_first_name %></td>
   </tr>
   <tr>
     <td>郵便番号</td>
@@ -34,10 +32,9 @@
 </table>
 <p>
   <strong>配送先</strong>
-  <!-- deliveries_pathを入れたい。エラーになるのでリンク先は代用。 -->
-  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+  <%= link_to "一覧を見る", deliveries_path %>
 </p>
 <p>
   <strong>注文履歴</strong>
-  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+  <%= link_to "一覧を見る", orders_path %>
 </p>
