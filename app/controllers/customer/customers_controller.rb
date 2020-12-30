@@ -17,10 +17,6 @@ class Customer::CustomersController < ApplicationController
     end
   end
   
-  def exit_check
-    @customer = current_customer
-  end
-  
   def exit
     @customer = current_customer
     @customer.update(is_deleted: true)
