@@ -4,7 +4,8 @@ class DeliveriesController < ApplicationController
   
   def index
     @delivery = Delivery.new
-    @deliveries = Delivery.all
+    @deliveries = current_customer.deliveries
+
   end
 
   def creat
