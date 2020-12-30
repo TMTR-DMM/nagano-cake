@@ -1,7 +1,9 @@
 <h1>商品一覧<span>(全8件)</span></h1>
+<div class="d-flex my-box-light flex-wrap mb-2">
 <% @items.each do |item| %>
 <%= attachment_image_tag item, :image, fallback: 'no_image.jpg', size: '80x80', format: 'jpg' %>
 <%= item.name %>
 <%= item.excluding_price %>
 <% end %>
+</div>
 <%= paginate @items %>
