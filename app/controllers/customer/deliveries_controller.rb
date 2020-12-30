@@ -1,10 +1,9 @@
-class DeliveriesController < ApplicationController
+class Customer::DeliveriesController < ApplicationController
   before_action :authenticate_customer!
 
   
   def index
     @delivery = Delivery.new
-    binding.pry
     @deliveries = current_customer.deliveries
   end
 
