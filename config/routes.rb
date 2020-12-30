@@ -7,7 +7,7 @@ get 'customers/exit_check' => 'customers#exit_check'
 patch 'customers' => 'customers#exit'
 resources :cart_items, only: [:index, :create, :update, :destroy]
 delete 'cart_items' => 'cart_items#all_destroy'
-resources :deliverlies, only: [:index, :create, :destroy, :edit, :update]
+resources :deliveries, only: [:index, :create, :destroy, :edit, :update]
 resources :items, only: [:index, :show]
 resources :orders, only: [:new, :create, :index, :show]
 get 'orders/check' => 'orders#check'
