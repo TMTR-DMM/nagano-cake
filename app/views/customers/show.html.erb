@@ -1,2 +1,43 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<h1>マイページ</h1>
+<span>
+  <strong>登録情報</strong>
+  <!-- edit_customers_path(current.user.id)にしたい。 -->
+  <!-- 会員がおらず、contorollerが設定できない -->
+  <%= link_to "編集する", edit_customers_path, class: "btn btn-success" %>
+</span>
+
+<table border="1" style="border-collapse: collapse">
+  <tr>
+    <td>氏名</td>
+    <td>試しに文字入れてます</td>
+  </tr>
+  <tr>
+    <td>カナ</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>郵便番号</td>
+    <td><%= @customer.postcode %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= @customer.address %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= @customer.phone_number %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= @customer.email %></td>
+  </tr>
+</table>
+<p>
+  <strong>配送先</strong>
+  <!-- deliveries_pathを入れたい。エラーになるのでリンク先は代用。 -->
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+</p>
+<p>
+  <strong>注文履歴</strong>
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+</p>
