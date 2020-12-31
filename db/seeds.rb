@@ -46,3 +46,9 @@ Customer.create!(
   address: "東京都杉並区",
   )
 
+Admin.create!(
+   email: "admin@admin.jp",
+   password:  "123456",
+   password_confirmation: "123456",
+   )
+

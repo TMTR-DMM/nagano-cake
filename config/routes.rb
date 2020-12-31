@@ -1,5 +1,30 @@
 Rails.application.routes.draw do
-devise_for :customers
+ devise_for :admins, controllers: {
+  sessions: 'admins/sessions'
+}
+  namespace :admin do
+    get 'categories/index'
+    get 'categories/edit'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/show'
+    get 'items/new'
+    get 'items/edit'
+  end
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'homes/top'
+  end
+ devise_for :customers
   namespace :customer do
     resource :customers, only: [:show, :edit, :update]
     get 'customers/exit_check' => 'customers#exit_check'
