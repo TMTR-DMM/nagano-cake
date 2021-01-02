@@ -7,4 +7,8 @@ class Customer < ApplicationRecord
   has_many :deliveries, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  
+  def fullname
+    [last_name, first_name].join
+  end
 end
