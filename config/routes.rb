@@ -3,23 +3,11 @@ Rails.application.routes.draw do
   sessions: 'admins/sessions'
 }
   namespace :admin do
-    get 'categories/index'
-    get 'categories/edit'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+   resources :categories, only: [:index, :create, :edit, :update]
+   resources :items, except: [:destroy]
+   resources :orders, only: [:index, :show, :update]
+   resources :customers, only: [:index, :show, :edit, :update]
+   resources :order_items, only: [:update]
   end
   namespace :admin do
     get 'homes/top'
@@ -44,5 +32,3 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
-
-#hey
