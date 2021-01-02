@@ -9,8 +9,9 @@ Rails.application.routes.draw do
    resources :customers, only: [:index, :show, :edit, :update]
    resources :order_items, only: [:update]
   end
-
-
+  namespace :admin do
+    get 'homes/top'
+  end
   devise_for :customers
   namespace :customer do
     resource :customers, only: [:show, :edit, :update]
@@ -31,5 +32,3 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
-
-#hey
