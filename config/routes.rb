@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
- devise_for :customers
+  devise_for :customers
   namespace :customer do
     resource :customers, only: [:show, :edit, :update]
     get 'customers/exit_check' => 'customers#exit_check'
