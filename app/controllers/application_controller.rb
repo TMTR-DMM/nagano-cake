@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
 
    if customer_signed_in? # ログイン後
-      customer_customers_path(current_customer)
+      customer_customers_path
    else
-      admin_homes_top_path
+      admin_orders_path
    end 
 
   end
