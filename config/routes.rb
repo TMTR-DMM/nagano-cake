@@ -9,9 +9,9 @@ Rails.application.routes.draw do
    resources :customers, only: [:index, :show, :edit, :update]
    resources :order_items, only: [:update]
   end
-  
 
- devise_for :customers
+
+  devise_for :customers
   namespace :customer do
     resource :customers, only: [:show, :edit, :update]
     get 'customers/exit_check' => 'customers#exit_check'
