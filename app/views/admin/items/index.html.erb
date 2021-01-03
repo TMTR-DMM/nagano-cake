@@ -1,4 +1,4 @@
-<table>
+<table class="table">
     <tr>
         <th>商品ID</th>
         <th>商品名</th>
@@ -7,12 +7,17 @@
         <th>ステータス</th>
     </tr>
     <% @items.each do |item| %>
-    <tr>
-        <td><%= item.id %></td>
-        <td><%= item.name %></td>
-        <td><%= item.excluding_price %></td>
-        <td><%= item.category %></td>
-        <td><%= item.is_deleted %></td>
-    </tr>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.excluding_price %></td>
+            <td><%= item.category.category %></td>
+        <% if item.is_deleted == true %>
+            <td>販売中</td>
+        <% else %>
+            <td>販売停止中</td>
+        <% end %>
+        </tr>
     <% end %>
 </table>
+<%= paginate @items %>
