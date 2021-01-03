@@ -13,7 +13,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to admin_items_index_path
+    redirect_to admin_items_path
   end
 
   def edit
@@ -21,6 +21,6 @@ class Admin::ItemsController < ApplicationController
   
   private
     def item_params
-      params.require(:item).permit(:name, :caption, :excluding_price, :image_id, :is_deleted)
+      params.require(:item).permit(:name, :caption, :excluding_price, :image, :is_deleted)
     end
 end
