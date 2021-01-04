@@ -1,8 +1,8 @@
 <h1>商品詳細</h1>
 <%= attachment_image_tag @item, :image, size: '60x60', format: 'jpg' %>
-<p>商品名<%= @item.name %></p>
-<p>商品説明<%= @item.caption %></p>
-<p>ジャンル<%= @item.category.category %></p>
+<p>商品名<%= @item.name %></p><br>
+<p>商品説明<%= @item.caption %></p><br>
+<p>ジャンル<%= @item.category.category %></p><br>
 <p>税込価格<%= (@item.excluding_price * 1.08).ceil %>(<%=@item.excluding_price %>)<br>
    (税抜価格)
 </p>
