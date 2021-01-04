@@ -55,3 +55,8 @@ Category.create!(
     category: "ケーキ",
   )
 
+
+Category.create!(
+  category: "ケーキ"
+  )
+  
