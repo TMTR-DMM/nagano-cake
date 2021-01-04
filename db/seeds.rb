@@ -51,5 +51,9 @@ Admin.create!(
    password:  "123456",
    password_confirmation: "123456",
    )
+
+
 Category.create!(
-  category: "ケーキ")
+  category: "ケーキ"
+  )
+  
