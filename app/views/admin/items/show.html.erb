@@ -3,7 +3,7 @@
 <p>商品名<%= @item.name %></p>
 <p>商品説明<%= @item.caption %></p>
 <p>ジャンル<%= @item.category.category %></p>
-<p>税込価格<%= @item.excluding_price/1.08 %>(<%=@item.excluding_price %>)<br>
+<p>税込価格<%= (@item.excluding_price * 1.08).ceil %>(<%=@item.excluding_price %>)<br>
    (税抜価格)
 </p>
 <p>販売ステータス
