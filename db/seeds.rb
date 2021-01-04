@@ -51,12 +51,20 @@ Admin.create!(
    password:  "123456",
    password_confirmation: "123456",
    )
+   
 Category.create!(
-    category: "ケーキ",
+    category: "ケーキ"
   )
 
-
 Category.create!(
-  category: "ケーキ"
+  category: "プリン"
+  )
+  
+Category.create!(
+  category: "焼き菓子"
+  )
+  
+Category.create!(
+  category: "キャンディ"
   )
   
