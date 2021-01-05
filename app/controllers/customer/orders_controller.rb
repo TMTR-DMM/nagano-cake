@@ -7,6 +7,7 @@ class Customer::OrdersController < ApplicationController
   end
   
   def check
+
   end
   
   def create
@@ -23,6 +24,6 @@ class Customer::OrdersController < ApplicationController
   private
   
   def order_params
-    params.requier(:order).permit(:postage, :amount_charged, :payment_method, :postcode, :address, :order_status, :name)
+    params.require(:order).permit(:postage, :amount_charged, :payment_method, :postcode, :address, :order_status, :name)
   end
 end
