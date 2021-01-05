@@ -22,7 +22,7 @@
         <%= (cart_item.excluding_price*1.08).ceil %>
       </th>
       <th>
-        <%= select_tag 'item', options_for_select([['個数選択', ''],['1...99', '1...99']]) %>
+        <%= select_tag 'item', options_for_select(1..99), {include_blank: '個数選択'} %>
         変更
       </th>
       <th>

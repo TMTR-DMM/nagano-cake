@@ -3,4 +3,4 @@
 <%= @item.caption %>
 <span>￥<%= @item.excluding_price %>（税込み）</span>
 <%= select_tag 'item', options_for_select(1..99), {include_blank: '個数選択'} %>
-<%= link_to 'カートに入れる', cart_items_path, method: :post, class: 'btn btn-success' %>
+<%= link_to 'カートに入れる', cart_items_path(amount: current_customer.items), method: :post, class: 'btn btn-success' %>
