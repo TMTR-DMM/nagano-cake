@@ -1,6 +1,6 @@
 class Customer::CartItemsController < ApplicationController
   def index
-    @cart_items = Item.all
+    @cart_items = current_customer.cart_items
     @cart_total = Item.all.sum(:excluding_price)
   end
   
