@@ -13,7 +13,7 @@
           <%= current_customer.fullname %><br>
   
   <span>登録済み住所から選択</span>
-  <%= f.collection_select :delivery, @deliveries, :id, :address %><br>
+  <%= f.collection_select :delivery_id, @deliveries, :id, :address %><br>
   
   <%= f.radio_button :address, "新しい登録先" %>
   <span>新しい登録先</span><br>
