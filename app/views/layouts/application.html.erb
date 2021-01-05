@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <header>
       <nav class="navbar navbar-expand navbar-dark bg-transparent p-5 border-bottom">
         <div class="container">
           <p>LOGO</p>
@@ -45,11 +46,11 @@
                 <%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-outline-secondary ml-4", method: :delete %>
               </li>
             <% else %>
-              <li class="nav-item">
+            　<li class="nav-item">
                 <%= link_to "About", homes_about_path, class: "btn btn-outline-secondary" %>
               </li>
-               <li class="nav-item">
-                <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary ml-5" %>
+              <li class="nav-item">
+            　　  <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary ml-5" %>
               </li>
               <li class="nav-item">
                 <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary ml-5" %>
@@ -58,10 +59,23 @@
                 <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary ml-5" %>
               </li>
         　　<% end %>
-        　</ul>
+          </ul>
         </div><!--container-->
+        <% if admin_signed_in? %>
+          <div class="search-form">
+            <div align="right">
+              <%= form_with url: search_path, method: :get, local: true do |f| %>
+      　　        <%= f.text_field 'search[value]', placeholder: "search" %>
+      　　        <%= f.select 'search[model]', options_for_select({ "Customer" => "customer", "Item" => "item"}) %>
+      　　        <%= f.select 'search[how]', options_for_select({"完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"}) %>
+                <%= f.submit '検索' %>
+      　　      <% end %>
+      　　    </div>
+          </div>
+        <% end %>
       </nav>
-    </div><!--container-fluid-->
+　　</header>
+　　
     <%= yield %>
     
   <footer class="navbar navbar-expand navbar-dark bg-transparent p-5 fixed-bottom border-top">
