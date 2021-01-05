@@ -70,3 +70,14 @@ Category.create!(
   )
   
 
+3.times do |n|
+  Category.all.each do |category|
+    category.items.create!(
+      name: "ケーキ",
+      caption: "おいしい",
+      excluding_price: "500",
+      image: File.open('./app/assets/images/cake.jpg'),
+      is_deleted: "販売中"
+      )
+  end
+end
