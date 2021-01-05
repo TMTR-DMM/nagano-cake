@@ -51,8 +51,33 @@ Admin.create!(
    password:  "123456",
    password_confirmation: "123456",
    )
+   
+Category.create!(
+    category: "ケーキ"
+  )
 
 Category.create!(
-  category: "ケーキ"
+
+  category: "プリン"
   )
   
+Category.create!(
+  category: "焼き菓子"
+  )
+  
+Category.create!(
+  category: "キャンディ"
+  )
+  
+
+3.times do |n|
+  Category.all.each do |category|
+    category.items.create!(
+      name: "ケーキ",
+      caption: "おいしい",
+      excluding_price: "500",
+      image: File.open('./app/assets/images/cake.jpg'),
+      is_deleted: "販売中"
+      )
+  end
+end
