@@ -57,6 +57,7 @@ Category.create!(
   )
 
 Category.create!(
+
   category: "プリン"
   )
   
@@ -68,3 +69,4 @@ Category.create!(
   category: "キャンディ"
   )
   
+
