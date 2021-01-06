@@ -3,7 +3,7 @@ class Delivery < ApplicationRecord
   
   
   def order_address
-    [address, name].join(' ')
+    ["〒", postcode, address, name].join(' ')
   end
   
 end
