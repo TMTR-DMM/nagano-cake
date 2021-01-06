@@ -8,22 +8,34 @@
       <th>小計</th>
     </tr>
   </thead>
+  <% sum = 0 %>
+  <% @cart_items.each do |cart_item| %>
     <tbody>
       <tr>
-        <td><%= %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
+        <td><%= attachment_image_tag cart_item.item, :image, size: '80x65', format: 'jpg' %>
+        <%= cart_item.item.name %></td>
+        <td><%= (cart_item.item.excluding_price*1.08).floor %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= ((cart_item.item.excluding_price*1.08)*(cart_item.amount)).floor %></td>
       </tr>
     </tbody>
+  <% sum += (cart_item.item.excluding_price)*(cart_item.amount) %>
+  <% end %>
 </table>
 
-<table>
-    <tbody>
+<%= form_with model: @order, url: orders_path, local: true do |f| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    </tbody>
-</table>
+    </thead>
+      <tbody>
+          <tr><td>送料</td><td><%= f.label :postage, "800" %></td></tr>
+          <tr><td>商品代合計</td><td><%= (sum*1.08).floor %></td></tr>
+          <tr><td>請求金額<td><%= f.label :amount_charged, "#{(sum*1.08).floor + 800}" %></td></tr>
+      </tbody>
+  </table>
+<% end %>

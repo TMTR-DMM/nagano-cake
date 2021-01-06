@@ -13,7 +13,8 @@
           <%= current_customer.fullname %><br>
           
   <% unless @deliveries == "" %>
-  <span>登録済み住所から選択</span>
+  <%= f.radio_button :address, "登録済み住所から選択" %>
+  <span>登録済み住所から選択</span><br>
   <%= f.collection_select :delivery_id, @deliveries, :id, :order_address %><br>
   <% end %>
   

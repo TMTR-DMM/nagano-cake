@@ -7,7 +7,8 @@ class Customer::OrdersController < ApplicationController
   end
   
   def check
-    @order = Order.find(params[:id])
+    @cart_items = current_customer.cart_items
+    @order = Order.new
   end
   
   def create
