@@ -8,7 +8,6 @@ class Customer::OrdersController < ApplicationController
   
   def check
     @order = Order.find(params[:id])
-    @order = params[:order][:payment_method][:address][:postcode][:name]
   end
   
   def create
