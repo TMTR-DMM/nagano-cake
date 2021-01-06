@@ -1,34 +1,49 @@
 class Customer::CartItemsController < ApplicationController
   def index
-    @cart_item = CartItem.new
-    @cart_items = current_customer.items
-    @cart_total = Item.all.sum(:excluding_price)
+    @cart_items = current_customer.cart_items
   end
   
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.item_id = params[:amount]
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      render 'index'
+    end
   end
   
   def update
-    @cart_items.update(quantity: params[:quantity].to_i)
-    redirect_to current_cart_item
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.update(cart_item_update_params)
+      redirect_to request.referrer
+    else
+      render 'index'
+    end
   end
   
   def destroy
-    @cart_items.destroy
-    flash.now[:alert] = "#{@cart_item.product.name}を削除しました"
-    redirect_to current_cart_item
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.destroy
+      flash[:alert] = "#{@cart_item.item.name}を削除しました"
+      redirect_to request.referrer
+    else
+      render 'index'
+    end
   end
   
   def all_destroy
+    @cart_items = current_customer.cart_items.destroy_all
+    flash[:alert] = "カートを空にしました"
+    redirect_to request.referrer
   end
   
   private
     def cart_item_params
+      params.require(:cart_item).permit(:amount, :item_id)
+    end
+    
+    def cart_item_update_params
       params.require(:cart_item).permit(:amount)
     end
 end

@@ -1,0 +1,10 @@
+ja:
+  enums:
+    order:
+      payment_method:
+        before_payment: "入金待ち"
+        payment_check: "入金確認"
+        making: "製作中"
+        before_delivery: "発送準備中"
+        deliveryed: "発送済み"
+        

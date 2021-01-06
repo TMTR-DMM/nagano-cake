@@ -1,2 +1,29 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<h2>注文情報入力</h2>
+<%= form_with model: @order, url: orders_check_path, local: true, method: :get do |f| %>
+  <%= f.label :payment_method, "支払い方法" %><br>
+  <%= f.radio_button :payment_method, "クレジットカード" %>
+  <span>クレジットカード</span><br>
+  <%= f.radio_button :payment_method, "銀行振込" %>
+  <span>銀行振込</span><br>
+  
+  <%= f.label :address, "お届け先" %><br>
+  <%= f.radio_button :address, "ご自身の住所", checked: true %>
+  <span>ご自身の住所</span><br>
+  <span>〒<%= current_customer.postcode %><%= current_customer.address %></span><br>
+          <%= current_customer.fullname %><br>
+          
+  <% unless @deliveries == "" %>
+  <span>登録済み住所から選択</span>
+  <%= f.collection_select :delivery_id, @deliveries, :id, :order_address %><br>
+  <% end %>
+  
+  <%= f.radio_button :address, "新しい登録先" %>
+  <span>新しい登録先</span><br>
+  <%= f.label :postcode, "郵便番号（ハイフンなし）" %>
+  <%= f.text_field :postcode %><br>
+  <%= f.label :address, "住所" %>
+  <%= f.text_field :address %><br>
+  <%= f.label :name, "宛名" %>
+  <%= f.text_field :name %><br>
+  <%= f.submit '確認画面へ' %>
+<% end %>
