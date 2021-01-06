@@ -47,3 +47,4 @@ class Customer::CartItemsController < ApplicationController
       params.require(:cart_item).permit(:amount)
     end
 end
+#a
