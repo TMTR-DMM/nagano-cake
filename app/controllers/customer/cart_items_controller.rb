@@ -33,7 +33,7 @@ class Customer::CartItemsController < ApplicationController
   end
   
   def all_destroy
-    @cart_items = current_customer.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
     flash[:alert] = "カートを空にしました"
     redirect_to request.referrer
   end
