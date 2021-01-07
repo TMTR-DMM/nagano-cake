@@ -8,21 +8,24 @@ class Customer::OrdersController < ApplicationController
   
   def check
     @cart_items = current_customer.cart_items
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
+    @customer = current_customer
+    @address_select = params[:address_select]
     
-    if params[:order][:address_option] == "ご自身の住所"  
-      @order.postcode = current_customer.postcode
-      @order.address = current_customer.address  
+    if @address_select == "1"  
+      @order.postcode = @customer.postcode
+      @order.address = @customer.address
+      @order.name = @customer.fullname
       
-    elsif params[:order][:address] == "登録済み住所から選択"  
+    elsif @address_select == "2"  
       # @sta = params[:order][:order_address].to_i  
       @order = Delivery.find(params[:id])  
       @order.postcode = @order.postcode  
       @order.address = @order.address  
-      @order.name = @order.name  
+      @order.name = @order.name
     
-    elsif params[:order][:address] == "新しい登録先"  
+    elsif @address_select == "3"  
       @order.postcode = params[:order][:postcode]  
       @order.address = params[:order][:address]  
     end  

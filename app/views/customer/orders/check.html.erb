@@ -32,7 +32,8 @@
       </tbody>
   </table>
   <p>お支払い方法 <%= @order.payment_method %></p>
-  <p>お届け先 <%= @order.address %></p>
+  <p>お届け先 <%= @customer.postcode %><%= @customer.address %></p>
+  <p><%= @customer.fullname %></p>
   <%= f.submit "注文を確定する" %>
 <% end %>
 
