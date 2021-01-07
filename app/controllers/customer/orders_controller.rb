@@ -32,6 +32,14 @@ class Customer::OrdersController < ApplicationController
   
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    if @order.save
+      cart_items = current_customer.cart_items
+      cart_items.destroy_all
+      redirect_to '/orders/thank'
+    else
+      render 'check'
+    end
   end
   
   def index
@@ -43,6 +51,6 @@ class Customer::OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order).permit(:postage, :amount_charged, :payment_method, :postcode, :address, :name)
+    params.require(:order).permit(:postage, :amount_charged, :payment_method, :postcode, :address, :name, :order_status)
   end
 end

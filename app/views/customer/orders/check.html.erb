@@ -26,12 +26,19 @@
 <%= form_with model: @order, url: orders_path, local: true do |f| %>
   <table>
       <tbody>
-          <tr><td>送料</td><td><%= f.label :postage, "800" %></td></tr>
+          <tr><td>送料</td><td><%= f.label :postage, 800 %></td></tr>
           <tr><td>商品代合計</td><td><%= (sum*1.08).floor %></td></tr>
           <tr><td>請求金額</td><td><%= f.label :amount_charged, "#{(sum*1.08).floor + 800}" %></td></tr>
       </tbody>
   </table>
   <p>お支払い方法:<%= @order.payment_method %></p>
   <p>お届け先:<%= @order.postcode %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></p>
+  <%= f.hidden_field :postage, :value => 800 %>
+  <%= f.hidden_field :amount_charged, :value => "#{(sum*1.08).floor + 800}" %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.hidden_field :postcode, :value => @order.postcode %>
+  <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.hidden_field :name, :value => @order.name %>
+  <%= f.hidden_field :order_status, :value => @order.order_status %>
   <%= f.submit "注文を確定する" %>
 <% end %>
