@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'search' => 'searches#search'
  devise_for :admins, controllers: {
   sessions: 'admins/sessions'
 }
+  get 'search' => 'searches#search'
   namespace :admin do
    resources :categories, only: [:index, :create, :edit, :update]
    resources :items, except: [:destroy]
@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     resources :deliveries, only: [:index, :create, :destroy, :edit, :update]
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show]
-    get 'orders/check' => 'orders#check'
-    get 'orders/thank' => 'orders#thank'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
