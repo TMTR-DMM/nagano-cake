@@ -31,8 +31,7 @@
           <tr><td>請求金額</td><td><%= f.label :amount_charged, "#{(sum*1.08).floor + 800}" %></td></tr>
       </tbody>
   </table>
-  <p>お支払い方法 <%= @order.payment_method %></p>
-  <p>お届け先 <%= @order.address %></p>
+  <p>お支払い方法:<%= @order.payment_method %></p>
+  <p>お届け先:<%= @order.postcode %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></p>
   <%= f.submit "注文を確定する" %>
 <% end %>
-
