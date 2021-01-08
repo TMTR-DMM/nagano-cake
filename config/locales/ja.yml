@@ -7,12 +7,10 @@ ja:
         making: "製作中"
         before_delivery: "発送準備中"
         deliveryed: "発送済み"
-        
-  ja:
-    enums:
-      order_item:
-        production_status:
-          cannot_be_started: "着手不可"
-          waiting_for_production: "制作待ち"
-          in_production: "制作中"
-          production_completed: "制作完了"
+  
+    order_item:
+      production_status:
+        cannot_be_started: "着手不可"
+        waiting_for_production: "制作待ち"
+        in_production: "制作中"
+        production_completed: "制作完了"
