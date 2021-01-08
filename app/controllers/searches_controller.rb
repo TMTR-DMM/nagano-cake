@@ -11,9 +11,12 @@ class SearchesController < ApplicationController
   
   private
   
+  # 顧客情報は漢字で苗字・名前は検索可能
+  # 商品は名前で検索可能
+  
   def match(model, value) #search_forでhowがmatchだった場合の処理
     if model == 'customer'
-      Customer.where(['last_name OR first_name', "#{value}", "#{value}"]) #上手くいかない
+      Customer.where(['last_name LIKE ? OR first_name LIKE ? ', "#{value}", "#{value}"]) 
     elsif model == 'item'
       Item.where(name: value) #whereでvalueと完全一致するnameを探す
     end
@@ -37,7 +40,7 @@ class SearchesController < ApplicationController
   
   def partical(model, value)
     if model == 'customer'
-      Customer.where(['last_name LIKE ? OR first_name LIKE ?', "%#{value}%" "%#{value}%"])
+      Customer.where(['last_name LIKE ? OR first_name LIKE ?', "%#{value}%", "%#{value}%"])
     elsif model == 'item'
       Item.where('name LIKE ?', "%#{value}%")
     end

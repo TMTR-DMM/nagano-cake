@@ -15,7 +15,7 @@
   <% unless @deliveries == [] %>
   <%= f.radio_button :address_option, 1 %>
   <span>登録済み住所から選択</span><br>
-  <%= f.collection_select :delivery_id, @deliveries, :id, :order_address %><br>
+  <%= f.collection_select :delivery_i, @deliveries, :id, :order_address %><br>
   <% end %>
 
   <%= f.radio_button :address_option, 2 %>
