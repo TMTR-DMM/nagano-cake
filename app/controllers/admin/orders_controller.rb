@@ -1,7 +1,11 @@
 class Admin::OrdersController < ApplicationController
   def index
-    @orders = Order.page(params[:page]).reverse_order.per(10)
-    
+    unless params[:id] == @customer
+      @customer = params[:id]
+      @orders = Order.where(customer_id: @customer).page(params[:page]).reverse_order.per(10)
+    else
+      @orders = Order.page(params[:page]).reverse_order.per(10)
+    end
   end
 
 
