@@ -1,4 +1,11 @@
-<div class="top_image"></div>
+<div class="top_image text-light">
+  <div class="top_text">
+    <h1>ようこそながのCAKEへ</h1>
+    <p>このサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。</p>
+  </div>
+</div>
 <div calss="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-auto">
@@ -10,7 +17,7 @@
         <%= attachment_image_tag item, :image, fallback: 'no_image.jpg', size: '200x150', format: 'jpg', class: '' %>
         <% end %><br>
         <%= item.name %><br>
-        <%= item.excluding_price %>
+        ¥<%= item.excluding_price %>
       </div>
         <% end %>
       </div><!--row mb-2-->

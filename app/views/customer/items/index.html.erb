@@ -7,7 +7,7 @@
         <%= attachment_image_tag item, :image, fallback: 'no_image.jpg', size: '200x150', format: 'jpg', class: '' %>
         <% end %><br>
         <%= item.name %><br>
-        <%= item.excluding_price %>
+        ¥<%= item.excluding_price %>
       </div>
     <% end %>
   </div>

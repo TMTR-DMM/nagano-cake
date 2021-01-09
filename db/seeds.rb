@@ -101,7 +101,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "ふわふわスフレチーズケーキ",
+      name: "スフレチーズケーキ",
       caption: "口の中でふわっとほどけ、スッと溶けるような食感をお楽しみいただけるチーズケーキです。チーズのコクと口どけが合わさることで、濃厚で飽きのこない味に仕上げました。",
       excluding_price: "200",
       image: File.open('./app/assets/images/cake5.jpg'),
@@ -115,7 +115,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "うみたて卵のふんわり厚切りロール",
+      name: "ふんわり厚切りロール",
       caption: "契約農場より仕入れる新鮮な卵を使用し、キメ細かく焼き上げた口溶けのよいスポンジで、たっぷりのホイップクリームとホイップクリーム入りカスタードクリームを巻きました。贅沢に厚切りにカットした、こだわりのロールケーキです。",
       excluding_price: "100",
       image: File.open('./app/assets/images/cake7.jpg'),
@@ -129,7 +129,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "無添加契約農場たまごのプリン",
+      name: "無添加たまごプリン",
       caption: "卵、牛乳、素材の味わいにこだわった無添加の焼きプリンです。飼料にこだわり、コクと旨みを追求したシャトレーゼオリジナルの卵を使用したプリンです。牛乳、卵、砂糖、無添加だからこそ味わえる素材の持つ素直なおいしさをお楽しみください。",
       excluding_price: "100",
       image: File.open('./app/assets/images/pudding2.jpg'),
@@ -150,7 +150,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "糖質82%カットのプリン キャラメルナッツクリーム",
+      name: "キャラメルナッツクリーム",
       caption: "純生クリームを使用したプリンに、ほんのりビターなキャラメル風味の純生クリームをのせ、ナッツをトッピングした大満足のプリンです。おいしさそのままに、1個当たり糖質量を2.6g(エリスリトール、マルチトールを除く。)に抑え、日本食品標準成分表2015年版七訂カスタードプリンと比較して糖質を82%カットしました。ダイエットや糖質が気になる方、夜食べるスイーツとしておすすめです。",
       excluding_price: "160",
       image: File.open('./app/assets/images/pudding5.jpg'),
@@ -171,7 +171,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "無添加バウムクーヘン すこやかの樹",
+      name: "無添加バウムクーヘン",
       caption: "ドイツの伝統的な製法に基づいて作った、バウムクーヘンです。香料や膨張剤といった添加物を一切使用していないにもかかわらず、しっとりと口溶けのよい食感に仕上げてあります。食べやすい手軽な大きさにカットしました。",
       excluding_price: "120",
       image: File.open('./app/assets/images/confectionery3.jpg'),
@@ -220,7 +220,7 @@ Category.create!(
       is_deleted: "販売中"
       )
       category.items.create!(
-      name: "ぼのぼの×ガチャピン・ムックコラボ",
+      name: "ぼのぼの×ガチャピンコラボ",
       caption: "世代を問わず親しまれているキャラクターのぼのぼのとガチャピン・ムックを職人さんたちが可愛いキャンディーに仕上げました。",
       excluding_price: "560",
       image: File.open('./app/assets/images/candy4.jpg'),
