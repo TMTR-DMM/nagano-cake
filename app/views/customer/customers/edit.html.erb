@@ -1,21 +1,43 @@
-<h1>会員情報編集</h1>
-<%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
-  <%= f.label :"氏名" %>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :first_name %><br>
-  <%= f.label :"フリガナ" %>
-  <%= f.text_field :kana_last_name %>
-  <%= f.text_field :kana_first_name %><br>
-  <%= f.label :"郵便番号" %>
-  <%= f.text_field :postcode %><br>
-  <%= f.label :"住所" %>
-  <%= f.text_field :address %><br>
-  <%= f.label :"電話番号" %>
-  <%= f.text_field :phone_number %><br>
-  <%= f.label :"メールアドレス" %>
-  <%= f.text_field :email %><br>
-  <p>
-    <%= f.submit "編集内容を保存" %>
-    <%= link_to "退会する", customer_customers_exit_check_path %>
-  </p>
-<% end %>
+<div class="customer-container">
+  <div class="customer-bg-img">
+    <div class="row col-lg-9 offset-1">
+      <h2>会員情報編集</h2>
+    </div>
+    <div class="row col-lg-9 offset-1">
+      <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
+        <table>
+          <tr>
+            <th><%= f.label :"氏名" %></th>
+            <td><%= f.text_field :last_name %><span>&emsp;</span></td>
+            <td><%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"フリガナ" %></th>
+            <td><%= f.text_field :kana_last_name %><span>&emsp;</span></td>
+            <td><%= f.text_field :kana_first_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"郵便番号" %></th>
+            <td><%= f.text_field :postcode %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"住所" %></th>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"電話番号" %></th>
+            <td><%= f.text_field :phone_number %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"メールアドレス" %></th>
+            <td><%= f.text_field :email %></td>
+          </tr>
+        </table>
+        <p>
+          <%= f.submit "編集内容を保存", class: "btn btn-outline-secondary" %>
+          <%= link_to "退会する", customer_customers_exit_check_path, class: "btn btn-outline-secondary" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

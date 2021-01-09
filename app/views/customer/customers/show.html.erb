@@ -1,40 +1,59 @@
-<h1>マイページ</h1>
-<span>
-  <strong>登録情報</strong>
-  <%= link_to "編集する", edit_customer_customers_path %>
-</span>
-
-<table border="1" style="border-collapse: collapse">
-  <tr>
-    <td>氏名</td>
-    <td><%= @customer.last_name %><span>&emsp;</span><%= @customer.first_name %></td>
-  </tr>
-  <tr>
-    <td>カナ</td>
-    <td><%= @customer.kana_last_name %><span>&emsp;</span><%= @customer.kana_first_name %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= @customer.postcode %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @customer.phone_number %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @customer.email %></td>
-  </tr>
-</table>
-<p>
-  <strong>配送先</strong>
-  <%= link_to "一覧を見る", deliveries_path %>
-</p>
-<p>
-  <strong>注文履歴</strong>
-  <%= link_to "一覧を見る", orders_path %>
-</p>
+<div class="customer-container">
+  <div class="customer-bg-img">
+    <div class="row">
+      <div class="col-lg-3 offset-1">
+        <h2>マイページ</h2>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-lg-3 offset-1">
+        <strong>登録情報</strong>
+        <%= link_to "編集する", edit_customer_customers_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" col-lg-7 offset-1">
+        <table border="1" style="border-collapse: collapse" cellpadding="8">
+          <tr>
+            <td>氏名</td>
+            <td><%= @customer.last_name %><span>&emsp;</span><%= @customer.first_name %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= @customer.kana_last_name %><span>&emsp;</span><%= @customer.kana_first_name %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @customer.postcode %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 offset-1">
+        <div class="h-75">
+          <strong>配送先</strong>
+          <%= link_to "一覧を見る", deliveries_path, class: "btn btn-outline-secondary" %>
+        </div>  
+      </div>
+    </div>
+    <div class="row col-lg-5 offset-1">
+      <div class="h-75">
+        <strong>注文履歴</strong>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-outline-secondary"%>
+      </div>
+    </div>
+  </div>
+</div>
