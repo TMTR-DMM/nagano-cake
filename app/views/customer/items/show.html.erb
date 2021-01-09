@@ -1,9 +1,17 @@
-<%= attachment_image_tag @item, :image, size: '100x100', format: 'jpg' %><br>
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">
+<%= attachment_image_tag @item, :image, size: '300x300', format: 'jpg' %><br>
+  </div>
+  <div class="col-sm-8" style="padding-top: 150px;">
 <%= @item.name %><br>
-<%= @item.caption %>
-<span>￥<%= @item.excluding_price %>（税込み）</span>
+<%= @item.caption %><br>
+￥<%= @item.excluding_price %>（税込み）<br>
 <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-  <%= f.select :amount, options_for_select(1..99), {include_blank: '個数選択'} %>
+  <%= f.select :amount, options_for_select(1..99), {include_blank: '個数選択'}, style: 'background-color: #99CCFF;' %>
   <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.submit "カートに入れる" %>
+  <%= f.submit "カートに入れる", class: 'btn btn-success' %>
 <% end %>
+</div>
+</div>
+</div>
