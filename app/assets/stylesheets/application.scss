@@ -29,6 +29,13 @@
   background-position: bottom;
   background-size: cover;
   opacity: 0.8;
+  display: flex;
 }
  
+ header {
+  padding: 0;
+ }
  
+ .top_text {
+  margin: 200px 150px;
+ }
