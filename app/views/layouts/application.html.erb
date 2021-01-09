@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <main>
+  <body>
     <header>
       <nav class="navbar navbar-expand bg-dark p-5 border-bottom">
         <div class="container">
@@ -78,12 +78,12 @@
         <% end %>
       </nav>
 　　</header>
-　　
+
+　　<main style="min-height: 100vh;">
     <%= yield %>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/script.js"></script>
-  </main>
-  <footer class="bg-dark p-5 border-top text-center text-light">
-    <p>©TMTR</p>
-  </footer>
+    </main>
+    <footer class="bg-dark p-5 border-top text-center text-light">
+      <p>©TMTR</p>
+    </footer>
+  </body>
 </html>

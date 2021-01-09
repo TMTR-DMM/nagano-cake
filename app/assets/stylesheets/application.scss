@@ -16,26 +16,12 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
- 
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
- 
- .top_image {
+
+header {
   height: 800px;
   background-image: url("背景1.png");
   background-position: bottom;
   background-size: cover;
   opacity: 0.8;
-  display: flex;
 }
- 
- header {
-  padding: 0;
- }
- 
- .top_text {
-  margin: 200px 150px;
- }
+
