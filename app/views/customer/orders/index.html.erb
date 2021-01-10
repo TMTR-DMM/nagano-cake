@@ -27,7 +27,7 @@
             <td><%= order_item.item.name %></td>
             <% end %>
             <td><%= (order.amount_charged).to_s(:delimited, delimiter: ',') %>円</td>
-            <td><%= order.order_status_i18n %></td>
+            <td style="color:red;"><%= order.order_status_i18n %></td>
             <td><%= link_to "表示する", order_path(order.id) %></td>
           </tr>
         </tbody>
