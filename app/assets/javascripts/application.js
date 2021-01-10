@@ -56,3 +56,11 @@ $(function() {
         newEL.animate({ opacity: 1 }, 1100);
     });
 });
+
+$(document).on("turbolinks:load", function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+});
