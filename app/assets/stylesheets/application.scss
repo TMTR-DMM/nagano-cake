@@ -49,7 +49,14 @@ header {
   background-image: url(slide5.png);
 }
 
-
+.back_image {
+  background-image: url(木目1.png);
+  background-position: bottom;
+  background-size: 100% auto;
+  opacity: 0.8;
+  background-repeat: repeat-y;
+  min-height: 100vh;
+}
 
 .btn-outline-secondary {
   color: white;
