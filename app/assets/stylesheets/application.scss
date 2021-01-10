@@ -27,25 +27,35 @@ header {
   background-color: #BC8F8F;
 }
 
-.top_image {
-  height: 800px;
-  background-image: url("背景1.png");
-  background-position: bottom;
-  background-size: cover;
-  opacity: 0.8;
-  display: flex;
+.top-slide {
+  height: 500px;
+  width: 70%;
+  margin: 0 auto;
 }
 
-.top_text {
-  margin: 120px 160px;
+.image1 {
+  background-image: url(slide1.png);
+}
+.image2 {
+  background-image: url(slide2.png);
+}
+.image3 {
+  background-image: url(slide3.png);
+}
+.image4 {
+  background-image: url(slide4.png);
+}
+.image5 {
+  background-image: url(slide5.png);
 }
 
 .back_image {
-  height: 800px;
-  background-image: url("木目1.png");
+  background-image: url(木目1.png);
   background-position: bottom;
-  background-size: cover;
+  background-size: 100% auto;
   opacity: 0.8;
+  background-repeat: repeat-y;
+  min-height: 100vh;
 }
 
 .btn-outline-secondary {
@@ -60,9 +70,10 @@ header {
   
 }
 
-h1{
+h1 {
   font-family: 'Permanent Marker', cursive;
-  font-size: 70px;
+  font-size: 60px;
+  color: #330000;
 }
 
 .welcome {
@@ -70,11 +81,21 @@ h1{
   font-size: 30px;
 }
 
-h2,h3{
+h2, h3 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: bold;
 }
 
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+a.page-link {
+  background-color: #778899;
+  color: #fff;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #a52a2a;
+    border-color: #a52a2a;
 }
