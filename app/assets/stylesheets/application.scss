@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 
-header {
+header, footer{
   background-color: #BC8F8F;
 }
 
@@ -66,8 +66,8 @@ h2, h3 {
 }
 
 body {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-}  
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 
 a.page-link {
   background-color: #778899;
