@@ -7,7 +7,7 @@
 <table>
   <tr><td class= "font-weight-bold"style="font-size:20px;"><%= @item.name %></td></tr>
   <tr><td><%= @item.caption %></td></tr>
-  <tr><td>￥<%= @item.excluding_price %>円（税込み）</td></tr>
+  <tr><td>￥<%= @item.excluding_price %>円（税抜き）</td></tr>
 </table>
 <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
   <%= f.select :amount, options_for_select(1..99), {include_blank: '個数選択'} %>
