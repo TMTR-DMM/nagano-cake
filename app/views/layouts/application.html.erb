@@ -4,17 +4,18 @@
     <title>NaganoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Permanent+Marker&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand bg-dark p-5 border-bottom">
+      <nav class="navbar navbar-expand p-5">
         <div class="container">
-          <%= image_tag 'LOGO.png', :size =>'200x60', class: "d-block mx-auto" %>
-        　<ul class="navbar-nav ml-auto">
+          <%= link_to image_tag("LOGO1.png", :size =>'200x60', class: "d-block mx-auto"), "/" %>
+        　<ul class="navbar-nav ml-auto ">
             <% if customer_signed_in? %>
               <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
               <li class="nav-item">
@@ -80,7 +81,9 @@
 　　</header>
 
 　　<main style="min-height: 100vh;">
-    <%= yield %>
+　　  <div class="back_image">
+      <%= yield %>
+      </div>
     </main>
     <footer class="bg-dark p-5 border-top text-center text-light">
       <p>©TMTR</p>
