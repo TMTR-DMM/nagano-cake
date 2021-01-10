@@ -17,11 +17,44 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-header {
-  height: 800px;
-  background-image: url("背景1.png");
-  background-position: bottom;
-  background-size: cover;
-  opacity: 0.8;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+.top-slide {
+  height: 500px;
+  width: 80%;
+  margin: 0 auto;
+
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+}
+  // background-image: url("背景1.png");
+  // background-position: bottom;
+  // background-size: cover;
+  // opacity: 0.8;
+}
+
+.image1 {
+  background-image: url(top1.png);
+}
+.image2 {
+  background-image: url(top2.png);
+}
+.image3 {
+  background-image: url(top3.png);
+}
+.image4 {
+  background-image: url(top4.png);
+}
+.image5 {
+  background-image: url(top5.png);
+}
+
+// .image1, .image2, .image3, .image4, .image5 {
+//   background-size: cover;
+//   background-position: center;
+// }

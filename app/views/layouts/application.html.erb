@@ -65,7 +65,7 @@
           </ul>
         </div><!--container-->
         <% if admin_signed_in? %>
-          <div class="search-form ">
+          <div class="search-form">
             <div align="right">
               <%= form_with url: search_path, method: :get, local: true do |f| %>
       　　        <%= f.text_field 'search[value]', placeholder: "search" %><br>
@@ -78,7 +78,25 @@
         <% end %>
       </nav>
 　　</header>
-
+　　<div class="top-slide">
+      <div class="theTarget">
+        <div class="image1">
+          <div class="bg-mask"></div>
+        </div> 
+        <div class="image2">
+          <div class="bg-mask"></div>
+        </div>
+        <div class="image3">
+          <div class="bg-mask"></div>
+        </div>
+        <div class="image4">
+          <div class="bg-mask"></div>
+        </div>
+        <div class="image5">
+          <div class="bg-mask"></div>
+        </div>
+      </div>
+    </div>
 　　<main style="min-height: 100vh;">
     <%= yield %>
     </main>
