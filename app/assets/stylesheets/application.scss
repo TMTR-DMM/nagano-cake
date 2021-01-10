@@ -27,42 +27,11 @@ header {
   background-color: #BC8F8F;
 }
 
-// .top_image {
-//   height: 800px;
-//   background-image: url("cake005.png");
-//   background-position: bottom;
-//   background-size: cover;
-//   opacity: 0.9;
-//   display: flex;
-// }
-
-// .top_text {
-//   margin: 200px 160px;
-// }
-
-// .back_image {
-//   height: 800px;
-//   // background-image: url("木目1.png");
-//   background-position: bottom;
-//   background-size: cover;
-//   opacity: 0.8;
-// }
-
 .top-slide {
   height: 500px;
   width: 70%;
   margin: 0 auto;
 }
-
-// .bg-mask {
-//   height: 100%;
-//   background: rgba(255,255,255,0.1);
-// }
-//   // background-image: url("背景1.png");
-//   // background-position: bottom;
-//   // background-size: cover;
-//   // opacity: 0.8;
-// }
 
 .image1 {
   background-image: url(slide1.png);
@@ -110,14 +79,16 @@ h2, h3 {
   font-weight: bold;
 }
 
-p {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  color: #330000;
-}
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}  
 
-@font-face {
-  font-family: 'M PLUS Rounded 1c';
-  font-weight: normal;
-  font-style: normal;
+a.page-link {
+  background-color: #778899;
+  color: #fff;
 }
-
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #a52a2a;
+    border-color: #a52a2a;
+}

@@ -4,25 +4,25 @@
       <h2 class="mb-4">配送先登録/一覧</h2>
       <%= form_with model: @delivery, local: true do |f| %>
       <div class="form-group">
-        <%= f.label :postcode, '郵便番号（ハイフンなし）' %><br>
+        <%= f.label :postcode, '郵便番号（ハイフンなし）', class: "font-weight-bold" %><br>
         <%= f.text_field :postcode, class: "form-control w-25" %><br>
       </div>
       <div class="form-group">
-        <%= f.label :address, '住所' %>
+        <%= f.label :address, '住所', class: "font-weight-bold" %>
         <%= f.text_field :address, class: "form-control w-75" %><br>
       </div>
       <div class="form-group">
-        <%= f.label :name, '宛名' %>
+        <%= f.label :name, '宛名', class: "font-weight-bold" %>
         <%= f.text_field :name, class: "form-control w-25" %>
       </div>
-        <%= f.submit '新規登録', class: "mb-4" %>
+        <%= f.submit '新規登録', class: "mb-4 font-weight-bold" %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <table class="table">
-        <thead>
+      <table class="table table-bordered table-light">
+        <thead class="bg-dark" style="color:white;">
           <tr>
             <th>郵便番号</th>
             <th>住所</th>
@@ -37,8 +37,8 @@
               <td><%= delivery.postcode %></td>
               <td><%= delivery.address %></td>
               <td><%= delivery.name %></td>
-              <td><%= link_to '編集する', edit_delivery_path(delivery.id) %></td>
-              <td><%= link_to '削除する', delivery_path(delivery.id), method: :delete %></td>
+              <td><%= link_to '編集する', edit_delivery_path(delivery.id), class: "btn btn-success" %></td>
+              <td><%= link_to '削除する', delivery_path(delivery.id), method: :delete, class: "btn btn-danger" %></td>
             </tr>
           </tbody>
         <% end %>

@@ -43,4 +43,15 @@ $(document).ready(function () {
     // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
     hidePrevious : true
   });
+
+$(function() {
+    var $allMsg = $('#title');
+    var $wordList = $('#title').html().split("");
+    $('#title').html("");
+    $.each($wordList, function(idx, elem) {
+        var newEL = $("<span/>").text(elem).css({ opacity: 0 });
+        newEL.appendTo($allMsg);
+        newEL.delay(idx * 70);
+        newEL.animate({ opacity: 1 }, 1100);
+    });
 });
