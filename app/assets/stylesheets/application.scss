@@ -17,13 +17,68 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header {
+  background-color: #BC8F8F;
+}
+
+.top_image {
   height: 800px;
   background-image: url("背景1.png");
   background-position: bottom;
   background-size: cover;
   opacity: 0.8;
+  display: flex;
 }
+
+.top_text {
+  margin: 120px 160px;
+}
+
+.back_image {
+  height: 800px;
+  background-image: url("木目1.png");
+  background-position: bottom;
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.btn-outline-secondary {
+  color: white;
+  border-color: white;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #BC8F8F;
+  border-color: #4D4545;
+  color: #4D4545;
+  
+}
+
+h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 70px;
+}
+
+.welcome {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 30px;
+}
+
+h2,h3{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+}
+
+p {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 
 
 
