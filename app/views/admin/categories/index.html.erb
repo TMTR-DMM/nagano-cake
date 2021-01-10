@@ -1,16 +1,26 @@
-<h2>ジャンル一覧・追加</h2>
-<%= form_with model: @category, url: admin_categories_path, local:true do |f| %>
-<%= f.label 'ジャンル名' %>
-<%= f.text_field :category, placeholder: 'ジャンル名' %>
-<%= f.submit '新規登録', class: 'btn btn-success' %>
-<% end %>
-
-<table>
-    <th>ジャンル</th>
-    <% @categories.each do |category| %>
-    <tr>
-        <td><%= category.category %></td>
-        <td><%= link_to '編集する', edit_admin_category_path(category) %></td>
-    </tr>
-    <% end %>
-</table>
+<div class="container mb-4 h-100">
+  <div class="row">
+    <div class="col-5">
+      <h2 class="mb-4">ジャンル一覧・追加</h2>
+        <%= form_with model: @category, url: admin_categories_path, local:true do |f| %>
+        <%= f.label 'ジャンル名' %>
+        <%= f.text_field :category, placeholder: 'ジャンル名' %>
+        <%= f.submit '新規登録', class: 'btn btn-success' %>
+        <% end %>
+        
+        <table class="table table-bordered table-light font-weight-bold">
+          <thead class="bg-dark" style="color:white;">
+            <th>ジャンル</th>
+          </thead>
+          <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.category %> &emsp;
+                <%= link_to '編集する', edit_admin_category_path(category) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
