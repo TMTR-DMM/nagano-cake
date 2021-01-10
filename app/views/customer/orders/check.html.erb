@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col">
       <h2 class="mb-4">注文情報確認</h2>
-      <table class="table">
-        <thead>
+      <table class="table table-bordered table-light">
+        <thead class="bg-dark" style="color:white;">
           <tr>
             <th>商品名</th>
             <th>単価（税込み）</th>
@@ -13,13 +13,13 @@
         </thead>
         <% sum = 0 %>
         <% @cart_items.each do |cart_item| %>
-          <tbody>
+          <tbody class="font-weight-bold">
             <tr>
               <td><%= attachment_image_tag cart_item.item, :image, size: '80x65', format: 'jpg' %>
               <%= cart_item.item.name %></td>
-              <td><%= (cart_item.item.excluding_price*1.08).floor %></td>
-              <td><%= cart_item.amount %></td>
-              <td><%= ((cart_item.item.excluding_price*1.08)*(cart_item.amount)).floor %></td>
+              <td><%= ((cart_item.item.excluding_price*1.08).round(0)).to_s(:delimited, delimiter: ',') %>円</td>
+              <td><%= cart_item.amount %>個</td>
+              <td><%= ((cart_item.item.excluding_price*1.08).round(0)*cart_item.amount).to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
           </tbody>
         <% sum += (cart_item.item.excluding_price*1.08).round(0)*cart_item.amount %>
@@ -32,19 +32,19 @@
 <div class="container mb-4">
   <div class="row">
     <div class="col-3">
-        <table class="table">
-            <tbody>
-                <tr><td class="font-weight-bold">送料</td><td><%= label :postage, 800 %></td></tr>
-                <tr><td class="font-weight-bold">商品代合計</td><td><%= sum %></td></tr>
-                <tr><td class="font-weight-bold">請求金額</td><td><%= label :amount_charged, "#{sum + 800}" %></td></tr>
+        <table class="table table-bordered table-light">
+            <tbody class="font-weight-bold">
+                <tr><td class="bg-dark" style="color:white;">送料</td><td class="table-light"><%= label :postage, 800 %>円</td></tr>
+                <tr><td class="bg-dark" style="color:white;">商品代合計</td><td class="table-light"><%= sum.to_s(:delimited, delimiter: ',') %>円</td></tr>
+                <tr><td class="bg-dark" style="color:white;">請求金額</td><td class="table-light"><%= label :amount_charged, "#{(sum + 800).to_s(:delimited, delimiter: ',')}" %>円</td></tr>
             </tbody>
         </table>
     </div>
     <div class="col-7 offset-2">
-      <table class="mb-4 ml-auto">
+      <table class="mb-4 ml-auto font-weight-bold">
         <tbody>
-        <tr><td class="font-weight-bold pb-2">お支払い方法</td><td>&emsp;&emsp;<%= @order.payment_method %></td></tr>
-        <tr><td class="font-weight-bold">お届け先</td><td>&emsp;&emsp;〒<%= @order.postcode %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></td></tr>
+        <tr><td>お支払い方法</td><td>&emsp;&emsp;<%= @order.payment_method %></td></tr>
+        <tr><td>お届け先</td><td>&emsp;&emsp;〒<%= @order.postcode %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></td></tr>
         </tbody>
       </table>
     </div>
@@ -60,7 +60,7 @@
         <%= f.hidden_field :address, :value => @order.address %>
         <%= f.hidden_field :name, :value => @order.name %>
         <%= f.hidden_field :order_status, :value => @order.order_status %>
-        <%= f.submit "注文を確定する" %>
+        <%= f.submit "注文を確定する", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
