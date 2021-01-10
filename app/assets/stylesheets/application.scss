@@ -27,26 +27,60 @@ header {
   background-color: #BC8F8F;
 }
 
-.top_image {
-  height: 800px;
-  background-image: url("背景1.png");
-  background-position: bottom;
-  background-size: cover;
-  opacity: 0.9;
-  display: flex;
+// .top_image {
+//   height: 800px;
+//   background-image: url("cake005.png");
+//   background-position: bottom;
+//   background-size: cover;
+//   opacity: 0.9;
+//   display: flex;
+// }
+
+// .top_text {
+//   margin: 200px 160px;
+// }
+
+// .back_image {
+//   height: 800px;
+//   // background-image: url("木目1.png");
+//   background-position: bottom;
+//   background-size: cover;
+//   opacity: 0.8;
+// }
+
+.top-slide {
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.top_text {
-  margin: 120px 160px;
+// .bg-mask {
+//   height: 100%;
+//   background: rgba(255,255,255,0.1);
+// }
+//   // background-image: url("背景1.png");
+//   // background-position: bottom;
+//   // background-size: cover;
+//   // opacity: 0.8;
+// }
+
+.image1 {
+  background-image: url(slide1.png);
+}
+.image2 {
+  background-image: url(slide2.png);
+}
+.image3 {
+  background-image: url(slide3.png);
+}
+.image4 {
+  background-image: url(slide4.png);
+}
+.image5 {
+  background-image: url(slide5.png);
 }
 
-.back_image {
-  height: 800px;
-  // background-image: url("木目1.png");
-  background-position: bottom;
-  background-size: cover;
-  opacity: 0.8;
-}
+
 
 .btn-outline-secondary {
   color: white;
@@ -60,9 +94,10 @@ header {
   
 }
 
-h1{
+h1 {
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
+  color: #330000;
 }
 
 .welcome {
@@ -70,13 +105,14 @@ h1{
   font-size: 30px;
 }
 
-h2,h3{
+h2, h3 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: bold;
 }
 
 p {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #330000;
 }
 
 @font-face {
@@ -84,3 +120,4 @@ p {
   font-weight: normal;
   font-style: normal;
 }
+
