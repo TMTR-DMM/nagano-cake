@@ -1,35 +1,34 @@
-<div class="container">
+<div class="container h-100">
   <div class="row">
-    <div class="col-12">
-      <div class="w-50 mx-auto">
+    <div class="col-8  mx-auto">
       <h2 class="mb-4 mt-4">マイページ</h2>
       <div class="mb-4">
-        <strong>登録情報</strong>
+        <strong>登録情報</strong>&emsp;
         <%= link_to "編集する", edit_customer_customers_path, class: "btn btn-success" %>
       </div>
-      <table border="1" cellpadding="8" class="w-100">
+      <table class="table table-border" border="2" bgcolor="#fff" bordercolor="#BC8F8F">
         <tr>
-          <td>氏名</td>
-          <td><%= @customer.last_name %><span>&emsp;</span><%= @customer.first_name %></td>
+          <td bgcolor="#FFEFD5">氏名</td>
+          <td><%= @customer.last_name %>&emsp;<%= @customer.first_name %></td>
         </tr>
         <tr>
-          <td>カナ</td>
-          <td><%= @customer.kana_last_name %><span>&emsp;</span><%= @customer.kana_first_name %></td>
+          <td bgcolor="#FFEFD5">カナ</td>
+          <td><%= @customer.kana_last_name %>&emsp;<%= @customer.kana_first_name %></td>
         </tr>
         <tr>
-          <td>郵便番号</td>
+          <td bgcolor="#FFEFD5">郵便番号</td>
           <td><%= @customer.postcode %></td>
         </tr>
         <tr>
-          <td>住所</td>
+          <td bgcolor="#FFEFD5">住所</td>
           <td><%= @customer.address %></td>
         </tr>
         <tr>
-          <td>電話番号</td>
+          <td bgcolor="#FFEFD5">電話番号</td>
           <td><%= @customer.phone_number %></td>
         </tr>
         <tr>
-          <td>メールアドレス</td>
+          <td bgcolor="#FFEFD5">メールアドレス</td>
           <td><%= @customer.email %></td>
         </tr>
       </table>
@@ -39,8 +38,7 @@
       </div>
       <div class="mb-3">
         <strong>注文履歴</strong>
-        <%= link_to "一覧を見る", orders_path, class: "btn btn-primary"%>
-      </div>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
