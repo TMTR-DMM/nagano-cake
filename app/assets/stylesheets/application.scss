@@ -28,13 +28,10 @@ header, footer{
 }
 
 
-.back_image {
+body {
   background-image: url(木目1.png);
-  background-position: bottom;
-  background-size: 100% auto;
-  opacity: 0.8;
+  background-size: cover;
   background-repeat: repeat-y;
-  min-height: 100vh;
 }
 
 .btn-outline-secondary {

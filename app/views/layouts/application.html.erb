@@ -10,10 +10,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body">
     <header>
       <nav class="navbar navbar-expand p-5">
-        <div class="container">
           <%= link_to image_tag("LOGO1.png", :size =>'200x60', class: "d-block mx-auto"), "/" %>
         　<ul class="navbar-nav ml-auto ">
             <% if customer_signed_in? %>
@@ -64,7 +63,7 @@
               </li>
         　　<% end %>
           </ul>
-        </div><!--container-->
+        
         <% if admin_signed_in? %>
           <div class="search-form ">
             <div align="right">
@@ -79,21 +78,18 @@
         <% end %>
       </nav>
 　　</header>
-　　
-　  <div class="top-slide">
-      <div class="theTarget">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-        <div class="image5"></div>
-      </div>
-    </div>
+　  <!--<div class="top-slide">-->
+   <!--   <div class="theTarget">-->
+   <!--     <div class="image1"></div>-->
+   <!--     <div class="image2"></div>-->
+   <!--     <div class="image3"></div>-->
+   <!--     <div class="image4"></div>-->
+   <!--     <div class="image5"></div>-->
+   <!--   </div>-->
+   <!-- </div>-->
 
 　　<main style="min-height: 100vh;">
-　　  <div class="back_image">
       <%= yield %>
-      </div>
     </main>
     <footer class="p-5 border-top text-center text-light">
       <p>©TMTR</p>
