@@ -72,3 +72,6 @@ gem 'jp_prefecture'
 gem 'dotenv-rails'
 gem 'pry-byebug'
 gem 'enum_help'
+group :production do
+  gem 'mysql2'
+end
