@@ -14,10 +14,10 @@
     <header>
       <nav class="navbar navbar-expand p-5">
           <%= link_to image_tag("LOGO1.png", :size =>'200x60', class: "d-block mx-auto"), "/" %>
-        　<ul class="navbar-nav ml-auto ">
+        　<ul class="navbar-nav ml-auto" id="sp-menu" style="display:none;">
             <% if customer_signed_in? %>
               <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
-              <li class="nav-item">
+              <li class="nav-item" >
                 <%= link_to "マイページ", customer_customers_path, class: "btn btn-outline-secondary ml-5" %>
               </li>
               <li class="nav-item">
@@ -63,7 +63,15 @@
               </li>
         　　<% end %>
           </ul>
-        
+                                  
+           <div id="hm-icon">
+            <a class="menu-trigger" href="">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+           </div>
+
         <% if admin_signed_in? %>
           <div class="search-form ">
             <div align="right">
@@ -78,15 +86,6 @@
         <% end %>
       </nav>
 　　</header>
-　  <!--<div class="top-slide">-->
-   <!--   <div class="theTarget">-->
-   <!--     <div class="image1"></div>-->
-   <!--     <div class="image2"></div>-->
-   <!--     <div class="image3"></div>-->
-   <!--     <div class="image4"></div>-->
-   <!--     <div class="image5"></div>-->
-   <!--   </div>-->
-   <!-- </div>-->
 
 　　<main style="min-height: 100vh;">
       <%= yield %>
@@ -94,5 +93,6 @@
     <footer class="p-5 border-top text-center text-light">
       <p>©TMTR</p>
     </footer>
+      
   </body>
 </html>
