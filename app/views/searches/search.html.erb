@@ -1,0 +1,46 @@
+<h2>検索結果</h2>
+<% if @model == "customer" %>
+  <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <% @datas.each do |data| %>
+      <tbody>
+        <tr>
+          <td><%= data.id %></td>
+          <td><%= data.fullname %></td>
+          <td><%= data.email %></td>
+          <% if data.is_deleted == false %>
+            <td>有効</td>
+          <% else %>
+            <td>退会</td>
+          <% end %>
+          </tr>
+      </tbody>
+    <% end %>
+  </table>
+<% elsif @model == "item" %>
+  <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>名前</th>
+        <th>価格</th>
+      </tr>
+    </thead>
+    <% @datas.each do |data| %>
+    　<tbody>
+    　   <tr>
+    　     <td><%= attachment_image_tag data, :image, fallback: 'no_image.jpg', size: '30x30', format: 'jpg' %></td>
+    　     <td><%= data.name %></td>
+          <td><%= data.excluding_price %></td>
+    　   </tr>
+    　</tbody>
+    <% end %>
+  </table>
+<% end %>

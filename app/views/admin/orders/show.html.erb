@@ -1,0 +1,78 @@
+<h2>注文履歴詳細</h2>
+
+<table>
+  <tr>
+    <th>購入者</th>
+    <td>
+      <%= link_to admin_customer_path(@order.customer) do %>
+      <%= @order.customer.last_name %><span>&emsp;</span><%= @order.customer.first_name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>注文日</th>
+    <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+  </tr>
+  <tr>
+    <th>配送先</th>
+    <td>〒<%= @order.postcode %><span>&emsp;</span><%= @order.address %></td>
+  </tr>
+  <tr>
+    <td><%= @order.name %></td>
+  </tr>
+  <tr>
+    <th>支払い方法</th>
+    <td><%= @order.payment_method %></td>
+  </tr>
+  <tr>
+　　<th>注文ステータス</th>
+　　<td>
+　　  <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+　　  　<%= f.select :order_status, Order.order_statuses_i18n.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+　　  　<%= f.submit "変更" %>
+　　  <% end %>
+　　</td>
+  </tr>
+</table>
+<% sum = 0 %>
+<% @order_items.each do |order_item| %>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>制作ステータス</th>
+  </tr>
+  <tr>
+    <td><%= order_item.item.name %></td>
+    <td><%= (order_item.item.excluding_price*1.08).floor %></td>
+    <td><%= order_item.ordered_qty %></td>
+    <td><%= ((order_item.item.excluding_price*1.08)*(order_item.ordered_qty)).floor %></td>
+    <td>
+      <%= form_with model: @order_item, url: admin_order_item_path(order_item), method: :patch, local: true do |f| %>
+        <%= f.select :production_status, OrderItem.production_statuses.keys.map {|k| [I18n.t("enums.order_item.production_status.#{k}"), k]} %>
+        <%= f.submit "変更" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<% sum += (order_item.item.excluding_price)*(order_item.ordered_qty) %>
+<% end %>
+
+
+
+<table>
+  <tr>
+    <th>商品合計</th>
+    <td><%= (sum*1.08).floor %></td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+　　<td><%= @order.amount_charged %></td>
+  </tr>
+</table>

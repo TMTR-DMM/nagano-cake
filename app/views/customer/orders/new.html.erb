@@ -1,0 +1,43 @@
+<div class="container mb-4">
+  <div class="row">
+    <div class="col">
+      <div class="w-50 mx-auto">
+        <h2 class="mb-4">注文情報入力</h2>
+          <%= form_with model: @order, url: orders_check_path, local: true, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.label :payment_method, "支払い方法", class: "font-weight-bold" %><br>
+            <%= f.radio_button :payment_method, "クレジットカード" %>
+            <span>クレジットカード</span><br>
+            <%= f.radio_button :payment_method, "銀行振込" %>
+            <span>銀行振込</span><br>
+          </div>
+          <div class="form-group">
+            <%= f.label :address, "お届け先", class: "font-weight-bold" %><br>
+            <%= f.radio_button :address_option, 0, checked: true %>
+            <span>ご自身の住所</span><br>
+            <span>〒<%= current_customer.postcode %><%= current_customer.address %></span><br>
+                    <%= current_customer.fullname %><br>
+          </div>
+          <div class="form-group">
+            <% unless @deliveries == [] %>
+            <%= f.radio_button :address_option, 1 %>
+            <span>登録済み住所から選択</span><br>
+            <%= f.collection_select :delivery_id, @deliveries, :id, :order_address %><br>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.radio_button :address_option, 2 %>
+            <span>新しい登録先</span><br>
+            <%= f.label :postcode, "郵便番号（ハイフンなし）" %><br>
+            <%= f.text_field :postcode, class: "form-control w-50" %><br>
+            <%= f.label :address, "住所" %><br>
+            <%= f.text_field :address, class: "form-control" %><br>
+            <%= f.label :name, "宛名" %><br>
+            <%= f.text_field :name, class: "form-control w-50" %><br>
+          </div>
+            <%= f.submit '確認画面へ', class: "btn btn-success"  %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

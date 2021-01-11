@@ -1,0 +1,31 @@
+<div calss="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-auto">
+      <h2>管理者ログイン</h2>
+      
+      <%= form_with model: @admin, url: new_admin_session_path, id: 'new_admin', class: 'new_admin', local:true do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
+    
+    </div><!--auto-->
+  </div><!--row-->
+</div><!--container-->

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>商品詳細</h2>
+      <%= attachment_image_tag @item, :image, size: '300x300', format: 'jpg' %>
+      <h3>商品名</h3><p><%= @item.name %></p>
+      <h3>商品説明</h3><p><%= @item.caption %></p>
+      <h3>ジャンル</h3><p><%= @item.category.category %></p>
+      <h3>税込価格</h3><p><%= (@item.excluding_price * 1.08).ceil %>(<%=@item.excluding_price %>)<br>
+         (税抜価格)</p>
+      <h3>販売ステータス</h3>
+       <p><% if @item.is_deleted == true %>
+          <span>販売中</span>
+      <% else %>
+          <span>販売停止中</span>
+      <% end %>
+      </p>
+      
+      <%= link_to '編集する', edit_admin_item_path(@item), class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>
