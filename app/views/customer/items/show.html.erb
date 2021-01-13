@@ -1,19 +1,20 @@
-<div class="container">
-<div class="row">
-  <div class="col-sm-4">
-<%= attachment_image_tag @item, :image, size: '300x300', format: 'jpg' %><br>
+<div class="d-flex align-items-center">
+<div class="container ">
+  <div class="row">
+    <div class="col-sm-4">
+      <%= attachment_image_tag @item, :image, size: '300x300', format: 'jpg' %><br>
+    </div>
+    
+    <div class="col-sm-8" style="padding-top: 75px;">
+      <h5 class="font-weight-bold mb-2"><%= @item.name %></h5>
+      <%= @item.caption %>
+      ￥<%= @item.excluding_price %>円（税抜き）
+      <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+      <%= f.select :amount, options_for_select(1..99), {include_blank: '個数選択'}, :required => true, class: "mt-3" %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-sm-8" style="padding-top: 150px;">
-<table>
-  <tr><td class= "font-weight-bold"style="font-size:20px;"><%= @item.name %></td></tr>
-  <tr><td><%= @item.caption %></td></tr>
-  <tr><td>￥<%= @item.excluding_price %>円（税抜き）</td></tr>
-</table>
-<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-  <%= f.select :amount, options_for_select(1..99), {include_blank: '個数選択'}, :required => true %>
-  <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.submit "カートに入れる", class: 'btn btn-success' %>
-<% end %>
-</div>
 </div>
 </div>
