@@ -15,11 +15,11 @@ class Customer::CartItemsController < ApplicationController
   
   def update
     @cart_item = CartItem.find(params[:id])
-    if @cart_item.update(cart_item_update_params)
-      redirect_to request.referrer
-    else
-      render 'index'
-    end
+      if @cart_item.update(cart_item_params)
+        redirect_to request.referrer
+      else
+        render 'index'
+      end
   end
   
   def destroy
