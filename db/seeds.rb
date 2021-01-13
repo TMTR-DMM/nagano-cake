@@ -214,35 +214,3 @@ excluding_price: "300",
 image: File.open('./app/assets/images/confectionery6.jpg'),
 is_deleted: "販売中"
 )
-Item.create!(
-category_id: 4,
-name: "ドラえもんMIX",
-caption: "みんな大好きドラえもんがCANDYにドラミちゃんも登場",
-excluding_price: "560",
-image: File.open('./app/assets/images/candy1.jpg'),
-is_deleted: "販売中"
-)
-Item.create!(
-category_id: 4,
-name: "ちびまる子ちゃん",
-caption: "世代を越えて愛されるちびまる子ちゃんがキャンディーに",
-excluding_price: "560",
-image: File.open('./app/assets/images/candy2.jpg'),
-is_deleted: "販売中"
-)
-Item.create!(
-category_id: 4,
-name: "ハローキティ",
-caption: "ハローキティのキュートなキャンディー",
-excluding_price: "560",
-image: File.open('./app/assets/images/candy3.jpg'),
-is_deleted: "販売中"
-)
-Item.create!(
-category_id: 4,
-name: "ぼのぼの×ガチャピンコラボ",
-caption: "世代を問わず親しまれているキャラクターのぼのぼのとガチャピン・ムックを職人さんたちが可愛いキャンディーに仕上げました。",
-excluding_price: "560",
-image: File.open('./app/assets/images/candy4.jpg'),
-is_deleted: "販売中"
-)
