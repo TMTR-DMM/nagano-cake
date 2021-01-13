@@ -29,7 +29,7 @@
             </th>
             <th>
               <%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch, local: true do |f| %>
-              <%= f.select :amount, options_for_select(1..99), {include_blank: cart_item.amount.to_s} %>
+              <%= f.select :amount, options_for_select((1..99), :selected => cart_item.amount.to_s) %>
               <%= f.submit "変更", class: 'btn btn-info' %>
               <% end %>
             </th>
