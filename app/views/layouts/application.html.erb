@@ -16,7 +16,10 @@
           <%= link_to image_tag("LOGO1.png", :size =>'200x60', class: "d-block mx-auto"), "/" %>
         　<ul class="navbar-nav ml-auto" id="sp-menu">
             <% if customer_signed_in? %>
-              <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
+              <div class="login-username">
+                <i class="fas fa-user"></i>
+                <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
+              </div>
               <li class="nav-item">
                 <%= link_to "マイページ", customer_customers_path, class: "btn btn-outline-secondary ml-5" %>
               </li>
