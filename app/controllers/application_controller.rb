@@ -2,9 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
       
   def after_sign_in_path_for(resource)
-      if customer_signed_in? # ログイン後
-       customer_customers_path
-      else 
+      if admin_signed_in? && customer_signed_in?
+        admin_items_path
+      elsif customer_signed_in? # ログイン後
+        customer_customers_path
+      elsif admin_signed_in?
         admin_items_path
       end
         
