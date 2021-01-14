@@ -15,7 +15,23 @@
       <nav class="navbar navbar-expand p-5">
           <%= link_to image_tag("LOGO1.png", :size =>'200x60', class: "d-block mx-auto"), "/" %>
         　<ul class="navbar-nav ml-auto" id="sp-menu">
-            <% if customer_signed_in? %>
+            <% if customer_signed_in? && admin_signed_in? %>
+              <li>
+                <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary ml-5"  %>
+              </li>
+              <li>
+                <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li>
+                <%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li>
+                <%= link_to "ジャンル一覧", admin_categories_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-outline-secondary ml-5", method: :delete %>
+              </li>
+            <% elsif customer_signed_in? %>
               <div class="login-username">
                 <i class="fas fa-user"></i>
                 <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
