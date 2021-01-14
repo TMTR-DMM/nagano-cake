@@ -83,7 +83,27 @@
         　　<% end %>
           </ul>
           <ul class="navbar-nav ml-auto" id="desktop-menu">
-            <% if customer_signed_in? %>
+            <% if customer_signed_in? && admin_signed_in?%>
+              <div class="login-username">
+                <i class="fas fa-user"></i>
+                <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
+              </div>
+              <li class="nav-item">
+                <%= link_to "マイページ", customer_customers_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "お買い物ガイド", homes_about_path, class: "btn btn-outline-secondary ml-5" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_customer_session_path, class: "btn btn-outline-secondary ml-5", method: :delete %>
+              </li>
+            <% elsif customer_signed_in? %>
               <div class="login-username">
                 <i class="fas fa-user"></i>
                 <%= current_customer.last_name %><span>&emsp;</span><%= current_customer.first_name %>さん
