@@ -17,12 +17,15 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items
-    @order_item = OrderItem.new
+    # @order_item = OrderItem.new
   end
   
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    if params[:order][:order_status] == "payment_check"
+      @order.order_items.update_all(production_status: 1)
+    end
     redirect_to request.referer
   end
   
