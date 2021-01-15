@@ -50,7 +50,7 @@
     <td><%= order_item.ordered_qty %></td>
     <td><%= ((order_item.item.excluding_price*1.08)*(order_item.ordered_qty)).floor %></td>
     <td>
-      <%= form_with model: @order_item, url: admin_order_item_path(order_item), method: :patch, local: true do |f| %>
+      <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch, local: true do |f| %>
         <%= f.select :production_status, OrderItem.production_statuses.keys.map {|k| [I18n.t("enums.order_item.production_status.#{k}"), k]} %>
         <%= f.submit "変更" %>
       <% end %>
