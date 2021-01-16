@@ -5,7 +5,7 @@ class Admin::OrderItemsController < ApplicationController
     @order_item.update(order_item_params)
     if params[:order_item][:production_status] == "in_production"
       @order.making!
-    elsif @order.order_items.where(params[:order_item][:production_status]) == "production_completed"
+    elsif @order.order_items.where(production_status: "production_completed").count == @order.order_items.count
       @order.before_delivery!
     end
     redirect_to request.referer
